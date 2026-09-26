@@ -1,0 +1,17 @@
+#!/bin/sh
+# X session for the Home Assistant kiosk. Started by startx from ~/.bash_profile
+# when the kiosk user is auto-logged-in on tty1.
+
+# Keep the screen on — the idle clock replaces the screensaver.
+xset s off
+xset s noblank
+xset -dpms
+
+# A minimal window manager keeps Chromium properly full-screen.
+if command -v matchbox-window-manager >/dev/null; then
+  matchbox-window-manager -use_titlebar no -use_cursor no &
+elif command -v openbox >/dev/null; then
+  openbox &
+fi
+
+exec /opt/ha-kiosk/run-chromium.sh

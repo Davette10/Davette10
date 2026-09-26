@@ -1,0 +1,24 @@
+# Add this to Home Assistant's configuration.yaml so the kiosk Pi logs in
+# automatically, with no password to type or expire.
+#
+# Replace:
+#   192.168.1.50  -> your Pi's IP address (give it a fixed IP / DHCP reservation
+#                    in your router, or this stops working when the IP changes)
+#   YOUR_USER_ID  -> the ID of the Home Assistant user the kiosk should use
+#                    (Settings > People > Users tab > click the user)
+#
+# If you already have a `homeassistant:` section, merge `auth_providers` into it
+# rather than adding a second `homeassistant:` key.
+#
+# Then: Developer tools > YAML > Check configuration, and restart Home Assistant.
+
+homeassistant:
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.50/32
+      trusted_users:
+        192.168.1.50/32: YOUR_USER_ID
+      allow_bypass_login: true
+    # Keep this so every other device still logs in with a username and password.
+    - type: homeassistant

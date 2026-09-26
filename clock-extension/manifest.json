@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "HA Kiosk Idle Clock",
+  "version": "1.0.0",
+  "description": "Shows a full-screen clock over Home Assistant after a period of inactivity. Tap to return.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["config.js", "clock.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
