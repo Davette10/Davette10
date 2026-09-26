@@ -120,6 +120,12 @@ SSH sessions are unaffected. The kiosk only starts on the Pi's own screen.
 - **It's slow.** A Pi 3 has 1 GB of RAM. Keep the kiosk dashboard simple:
   avoid camera streams, many history graphs and heavy custom cards.
 
+## Desk enclosure
+
+[`enclosure/`](enclosure) has a 3D-printable, Echo Show–style desk stand for
+the Elecrow 5" display with the Pi mounted behind it. All cables come out one
+notch in the back.
+
 ## How it works
 
 ```
